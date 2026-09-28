@@ -25,11 +25,22 @@ int main() {
   elem_t In[DIM][DIM];
   elem_t Out[DIM][DIM];
 
+  // initialize input matrix with random values
+  for (size_t i = 0; i < DIM; i++)
+    for (size_t j = 0; j < DIM; j++)
+      In[i][j] = (rand() % 256) - 128;
+  
   elem_t Identity[DIM][DIM];
   for (size_t i = 0; i < DIM; i++)
     for (size_t j = 0; j < DIM; j++)
       Identity[i][j] = i == j;
 
+  printf("Printing Input matrice\n");
+  
+  for (size_t i = 0; i < DIM; i++)
+    for (size_t j = 0; j < DIM; j++)
+      printf("In[%d][%d] = %d\n", i, j, In[i][j]);
+  
   printf("Calculate the scratchpad addresses of all our matrices\n");
   printf("  Note: The scratchpad is \"row-addressed\", where each address contains one matrix row\n");
   size_t In_sp_addr = 0;
