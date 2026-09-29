@@ -1,3 +1,29 @@
+# Tiling Study
+
+> **Note:** This repository is a modified submodule of [gemmini](https://github.com/ucb-bar/gemmini),
+> maintained by the original developers at UC Berkeley. I modified it for personal study and experimentation.
+> All credit for the original work goes to the original authors.
+
+## Why this repo exists
+I forked this project to study gemmini and to experiment with tiling size and to observe cycle counts.
+
+## Changes from upstream
+- Added `bareMetalC/tile_sweep.c`, a benchmark that audits Gemmini's `tiled_matmul_auto` tiling heuristic against six hand-picked tile sizes on a 128x256x256 matmul, measuring real cycle counts and hardware performance counters for each.
+- Registered `tile_sweep` as a test target in `bareMetalC/Makefile`.
+- Modified `bareMetalC/template.c` to initialize the `In` matrix with explicit values instead of leaving it uninitialized.
+- Tested with Verilator RTL simulation (`GemminiRocketConfig`, `DIM=16`) and Spike (functional correctness checks only — Spike does not model timing).
+- Based on upstream commit: `7c540b3` (`fix counter test & gemmini_params.h`), branch `dev`.
+
+## Results / Experiments
+Gemmini automatically picks a tile size when running a tiled matmul. This benchmark checks whether that automatic choice is actually the fastest one available, on cycle-accurate simulated hardware.
+
+**Short answer: no.** A hand-picked tiling beats the automatic choice by 3.3%. Full methodology, data, and discussion in [`results.md`](./results.md).
+
+
+---
+
+**<ins>Original README (from upstream)</ins>**
+
 # Quickstart
 1. Clone submodules:
     ```bash

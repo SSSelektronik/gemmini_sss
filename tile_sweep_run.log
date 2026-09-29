@@ -1,0 +1,139 @@
+%Warning: System has stack size 8192 kb which may be too small; suggest 'ulimit -c 15363' or larger
+[UART] UART0 is here (stdin/stdout).
+== Loading device model file '../../generators/testchipip/src/main/resources/dramsim2_ini/DDR3_micron_64M_8B_x4_sg15.ini' ==
+== Loading system model file '../../generators/testchipip/src/main/resources/dramsim2_ini/system.ini' ==
+===== MemorySystem 0 =====
+CH. 0 TOTAL_STORAGE : 4096MB | 1 Ranks | 16 Devices per rank
+DRAMSim2 Clock Frequency =666666666Hz, CPU Clock Frequency=500000000Hz
+=== tile sweep ===
+I=128 J=256 K=256  (blocks: 8 x 16 x 16, DIM=16)
+BANK_NUM=4 BANK_ROWS=4096 ACC_ROWS=1024
+budgets (WS, double-buffered): spad_rows=8192 acc_rows=512
+filling matrices...
+done filling
+
+warmup...
+warmup done
+
+--- tiled_matmul_auto (library's choice) ---
+  seed             : tile_I=5 tile_J=5 tile_K=16
+  library picks    : tile_I=5 tile_J=6 tile_K=16
+  spad rows used   : 2816 / 8192
+  acc rows used    : 480 / 512
+  cycles           : 37520
+  ideal cycles     : 32768
+  utilization      : 87%
+  RDMA_BYTES_REC   : 557056
+  WDMA_BYTES_SENT  : 32768
+  EXE_ACTIVE       : 33159
+  LOAD_DMA_WAIT    : 93
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 51161
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 93979
+  checksum         : 8391460049216892021
+
+--- tiled_matmul tile_I=5 tile_J=6 tile_K=16 ---
+  spad rows used   : 2816 / 8192
+  acc rows used    : 480 / 512
+  cycles           : 37392
+  ideal cycles     : 32768
+  utilization      : 87%
+  RDMA_BYTES_REC   : 557056
+  WDMA_BYTES_SENT  : 32768
+  EXE_ACTIVE       : 33274
+  LOAD_DMA_WAIT    : 96
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 50493
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 93427
+  vs auto          : 0% FASTER
+  checksum         : 8391460049216892021 (ok)
+
+--- tiled_matmul tile_I=4 tile_J=8 tile_K=16 ---
+  spad rows used   : 3072 / 8192
+  acc rows used    : 512 / 512
+  cycles           : 38275
+  ideal cycles     : 32768
+  utilization      : 85%
+  RDMA_BYTES_REC   : 425984
+  WDMA_BYTES_SENT  : 32768
+  EXE_ACTIVE       : 33558
+  LOAD_DMA_WAIT    : 0
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 51323
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 94638
+  vs auto          : 2% slower
+  checksum         : 8391460049216892021 (ok)
+
+--- tiled_matmul tile_I=8 tile_J=4 tile_K=16 ---
+  spad rows used   : 3072 / 8192
+  acc rows used    : 512 / 512
+  cycles           : 38278
+  ideal cycles     : 32768
+  utilization      : 85%
+  RDMA_BYTES_REC   : 425984
+  WDMA_BYTES_SENT  : 32768
+  EXE_ACTIVE       : 33543
+  LOAD_DMA_WAIT    : 0
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 51349
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 94646
+  vs auto          : 2% slower
+  checksum         : 8391460049216892021 (ok)
+
+--- tiled_matmul tile_I=4 tile_J=4 tile_K=16 ---
+  spad rows used   : 2048 / 8192
+  acc rows used    : 256 / 512
+  cycles           : 36265
+  ideal cycles     : 32768
+  utilization      : 90%
+  RDMA_BYTES_REC   : 688128
+  WDMA_BYTES_SENT  : 32768
+  EXE_ACTIVE       : 32581
+  LOAD_DMA_WAIT    : 0
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 50524
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 92799
+  vs auto          : 3% FASTER
+  checksum         : 8391460049216892021 (ok)
+
+--- tiled_matmul tile_I=2 tile_J=16 tile_K=16 ---
+  spad rows used   : 4608 / 8192
+  acc rows used    : 512 / 512
+  cycles           : 39876
+  ideal cycles     : 32768
+  utilization      : 82%
+  RDMA_BYTES_REC   : 425984
+  WDMA_BYTES_SENT  : 32768
+  EXE_ACTIVE       : 35157
+  LOAD_DMA_WAIT    : 0
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 51362
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 96276
+  vs auto          : 6% slower
+  checksum         : 8391460049216892021 (ok)
+
+--- tiled_matmul tile_I=6 tile_J=5 tile_K=16 ---
+  spad rows used   : 2816 / 8192
+  acc rows used    : 480 / 512
+  cycles           : 38068
+  ideal cycles     : 32768
+  utilization      : 86%
+  RDMA_BYTES_REC   : 532480
+  WDMA_BYTES_SENT  : 34816
+  EXE_ACTIVE       : 34256
+  LOAD_DMA_WAIT    : 230
+  STORE_DMA_WAIT   : 0
+  SPAD_A_WAIT      : 50781
+  SPAD_B_WAIT      : 0
+  RES_STATION_FULL : 94608
+  vs auto          : 1% slower
+  checksum         : 8391460049216892021 (ok)
+
+=== done ===
+- /mnt/sda2/Projects/Gemmni/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.GemminiRocketConfig/gen-collateral/TestDriver.v:158: Verilog $finish
